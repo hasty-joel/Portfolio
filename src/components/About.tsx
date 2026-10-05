@@ -59,7 +59,7 @@ export default function About() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/15 bg-cyan-500/5 text-cyan-400 text-[10px] font-mono tracking-widest uppercase mb-3"
           >
-            <span>SYS // ABOUT ME</span>
+            <span>ABOUT</span>
           </motion.div>
           
           <motion.h2
@@ -69,7 +69,7 @@ export default function About() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl font-bold tracking-tight text-white font-sans uppercase"
           >
-            A Student with a Vision
+            Designer & Developer
           </motion.h2>
         </div>
 
@@ -83,7 +83,7 @@ export default function About() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ type: "spring", stiffness: 80, damping: 15 }}
-              className="relative w-72 sm:w-80 h-[380px] sm:h-[420px] group cursor-pointer"
+              className="relative w-72 sm:w-80 h-[380px] sm:h-[400px] group cursor-pointer"
             >
               {/* Outer double glowing boundaries */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-sky-500/20 via-cyan-500/20 to-red-500/20 blur-xl opacity-40 group-hover:opacity-75 transition-all duration-500 -z-10" />
@@ -97,46 +97,32 @@ export default function About() {
                 {/* Top status rail */}
                 <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 relative z-10">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
                     <span>STAHIZA PRESIDENT</span>
                   </div>
                   <span>UGANDA</span>
                 </div>
 
                 {/* Styled Center Avatar visual */}
-                <div className="w-36 h-36 rounded-full bg-gradient-to-tr from-sky-500 via-cyan-500 to-red-500 mx-auto flex items-center justify-center p-1.5 relative shadow-[0_0_50px_rgba(6,182,212,0.25)] group-hover:scale-105 transition-transform duration-500">
-                  {/* Subtle inner dark ring */}
+                <div className="w-32 h-32 rounded-full bg-gradient-to-tr from-sky-500 via-cyan-500 to-red-500 mx-auto flex items-center justify-center p-1 relative shadow-[0_0_40px_rgba(6,182,212,0.2)] group-hover:scale-105 transition-transform duration-500">
                   <div className="w-full h-full rounded-full bg-[#0f172a] flex items-center justify-center overflow-hidden relative">
-                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(6,182,212,0.1)_0%,transparent_100%)]" />
-                    
-                    {/* Stylized vector representation of face outline / initials */}
-                    <div className="text-4xl font-black font-sans tracking-tighter bg-gradient-to-r from-sky-400 via-cyan-200 to-red-400 bg-clip-text text-transparent animate-pulse select-none">
+                    <div className="text-3xl font-black font-sans tracking-tight text-white select-none">
                       AJ
                     </div>
                   </div>
-                  
-                  {/* Outer active orbit rings */}
                   <div className="absolute -inset-1 border border-dashed border-cyan-400/20 rounded-full animate-[spin_40s_linear_infinite]" />
                 </div>
 
                 {/* Bottom bio card */}
-                <div className="space-y-3 relative z-10">
+                <div className="space-y-2 relative z-10">
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-cyan-400" />
+                    <MapPin className="w-3.5 h-3.5 text-cyan-400" />
                     <span className="text-xs text-zinc-300 font-medium">Kampala, Uganda</span>
                   </div>
                   
                   <div className="flex items-center gap-2">
-                    <GraduationCap className="w-4 h-4 text-cyan-400" />
-                    <span className="text-xs text-zinc-300 font-medium">Standard High School Zzana (STAHIZA)</span>
-                  </div>
-
-                  <div className="h-[1px] bg-white/5 my-2" />
-
-                  {/* Tiny mock console output */}
-                  <div className="font-mono text-[9px] text-zinc-600">
-                    <span className="text-cyan-400">atamba@joel:~$</span> node init.js <br />
-                    <span className="text-emerald-500">✔ Portfolios online</span>
+                    <GraduationCap className="w-3.5 h-3.5 text-cyan-400" />
+                    <span className="text-xs text-zinc-300 font-medium">STAHIZA Alumnus</span>
                   </div>
                 </div>
               </div>
@@ -152,35 +138,32 @@ export default function About() {
               transition={{ delay: 0.2 }}
               className="space-y-6"
             >
-              <p className="text-zinc-300 text-lg sm:text-xl font-normal leading-relaxed">
+              <p className="text-zinc-300 text-lg font-normal leading-relaxed">
                 {ABOUT_DATA.bio}
               </p>
               
-              <div className="flex flex-wrap gap-3">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-white/2 text-zinc-400 text-xs font-semibold">
+              <div className="flex flex-wrap gap-2.5">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-white/2 text-zinc-400 text-xs font-medium">
                   <Award className="w-3.5 h-3.5 text-red-400" />
-                  <span>Standard High School Zzana (STAHIZA) Leader</span>
+                  <span>STAHIZA President</span>
                 </div>
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-white/2 text-zinc-400 text-xs font-semibold">
-                  <Code className="w-3.5 h-3.5 text-sky-400" />
-                  <span>AI Developer & Designer</span>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-white/2 text-zinc-400 text-xs font-medium">
+                  <Code className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>UI/UX & Frontend</span>
                 </div>
               </div>
             </motion.div>
 
             {/* Statistics Counters Grid */}
-            <ScrollReveal staggerChildren={0.12} className="grid grid-cols-2 gap-6 pt-6 border-t border-white/5">
+            <ScrollReveal staggerChildren={0.12} className="grid grid-cols-2 gap-4 pt-6 border-t border-white/5">
               {ABOUT_DATA.stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="p-5 rounded-2xl border border-white/5 bg-[#131e35] relative overflow-hidden group hover:border-cyan-500/25 transition-colors h-full"
+                  className="p-5 rounded-xl border border-white/5 bg-[#131e35] relative overflow-hidden group hover:border-cyan-500/25 transition-colors h-full"
                 >
-                  {/* Subtle inner linear shimmer glow */}
-                  <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent" />
-                  
-                  <div className="flex flex-col gap-1.5">
+                  <div className="flex flex-col gap-1">
                     <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                    <span className="text-zinc-500 text-xs sm:text-sm font-medium tracking-wide uppercase">
+                    <span className="text-zinc-400 text-xs font-medium tracking-wide uppercase">
                       {stat.label}
                     </span>
                   </div>
@@ -192,8 +175,8 @@ export default function About() {
         </div>
 
         {/* Visual Collage Section */}
-        <div className="mt-24 pt-16 border-t border-white/5 relative">
-          <div className="mb-10 text-center lg:text-left">
+        <div className="mt-20 pt-14 border-t border-white/5 relative">
+          <div className="mb-8 text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -201,7 +184,7 @@ export default function About() {
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-amber-500/15 bg-amber-500/5 text-amber-400 text-[10px] font-mono tracking-widest uppercase mb-3"
             >
               <Camera className="w-3.5 h-3.5" />
-              <span>CRAFT & COMMUNITY IN FOCUS</span>
+              <span>IN THE STUDIO</span>
             </motion.div>
             <motion.h3 
               initial={{ opacity: 0, y: 15 }}
@@ -210,16 +193,16 @@ export default function About() {
               transition={{ delay: 0.1 }}
               className="text-2xl sm:text-4xl font-bold tracking-tight text-white uppercase font-sans"
             >
-              Developer & Designer Lifestyle
+              Creative Process
             </motion.h3>
             <motion.p 
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-zinc-500 text-sm max-w-xl mt-2 font-normal leading-relaxed"
+              className="text-zinc-400 text-sm max-w-md mt-2 font-normal leading-relaxed"
             >
-              An authentic behind-the-scenes look at my creative processes—from wireframe layout sprints to full-stack code deployments and Standard High School Zzana ICT Club mentorship.
+              Behind the scenes—wireframing, code builds, and ICT Club leadership.
             </motion.p>
           </div>
 
@@ -262,7 +245,7 @@ export default function About() {
             >
               <img
                 src={stahizaClub}
-                alt="Atamba Joel leading high school student developers"
+                alt="Atamba Joel leading tech workshop"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 brightness-90 group-hover:brightness-100"
               />
@@ -272,7 +255,7 @@ export default function About() {
                     Leadership
                   </span>
                   <span className="px-2 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-mono">
-                    Education
+                    Mentorship
                   </span>
                 </div>
                 <h4 className="text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight flex items-center gap-2">
@@ -280,7 +263,7 @@ export default function About() {
                   ICT Club Empowerment
                 </h4>
                 <p className="text-zinc-400 text-[11px] sm:text-xs lg:text-sm mt-1 leading-relaxed">
-                  Leading coding bootcamps, hosting custom design workshops, and guiding high school peers through web layout wireframing in Kampala.
+                  Leading coding bootcamps, hosting custom design workshops, and guiding community developers through web layout wireframing in Kampala.
                 </p>
               </div>
             </div>

@@ -25,7 +25,7 @@ export default function Projects() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/15 bg-cyan-500/5 text-cyan-400 text-[10px] font-mono tracking-widest uppercase mb-3"
           >
-            <span>SYS // PORTFOLIO EXHIBITS</span>
+            <span>PROJECTS</span>
           </motion.div>
           
           <motion.h2
@@ -35,7 +35,7 @@ export default function Projects() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl font-bold tracking-tight text-white font-sans uppercase"
           >
-            Featured Engineering Work
+            Featured Work
           </motion.h2>
           
           <motion.p
@@ -43,9 +43,9 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-zinc-500 text-sm max-w-lg mt-2 font-normal leading-relaxed"
+            className="text-zinc-400 text-sm max-w-md mt-2 font-normal leading-relaxed"
           >
-            A curated showcase of modern web solutions. Click on any card to morph it into an interactive full-screen specification view.
+            Selected web applications and design systems.
           </motion.p>
         </div>
 

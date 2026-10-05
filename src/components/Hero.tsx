@@ -158,7 +158,7 @@ export default function Hero() {
             variants={itemVariants}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-red-500/20 bg-red-500/5 text-red-400 text-xs font-semibold tracking-wider uppercase mb-6 shadow-[0_0_15px_rgba(239,68,68,0.1)] hover:border-red-500/40 transition-all duration-300"
           >
-            <span>Available for Collaborations</span>
+            <span>Available for Work</span>
           </motion.div>
 
           {/* Core Logo Name */}
@@ -200,7 +200,7 @@ export default function Hero() {
           {/* Detailed summary */}
           <motion.p 
             variants={itemVariants}
-            className="text-zinc-400 text-base sm:text-lg max-w-2xl font-normal leading-relaxed mb-10"
+            className="text-zinc-400 text-base sm:text-lg max-w-xl font-normal leading-relaxed mb-10"
           >
             {HERO_DATA.intro}
           </motion.p>
@@ -215,7 +215,7 @@ export default function Hero() {
                 onClick={() => handleScrollTo('projects')}
                 className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-400 hover:to-cyan-400 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 hover:scale-[1.03] transition-all cursor-pointer group"
               >
-                <span>View My Projects</span>
+                <span>Projects</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </Magnetic>
@@ -236,7 +236,7 @@ export default function Hero() {
                 className="w-full sm:w-auto px-6 py-3 rounded-xl bg-transparent hover:bg-white/5 text-sm font-semibold text-zinc-400 hover:text-white flex items-center justify-center gap-1.5 hover:scale-[1.03] transition-all cursor-pointer"
               >
                 <Send className="w-3.5 h-3.5" />
-                <span>Contact Me</span>
+                <span>Contact</span>
               </button>
             </Magnetic>
           </motion.div>

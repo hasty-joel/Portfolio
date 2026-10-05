@@ -4,41 +4,6 @@ import { Layers, Terminal, Palette, Settings } from 'lucide-react';
 import { SKILLS_DATA } from '../data';
 import ScrollReveal from './ScrollReveal';
 
-// Custom skill proficiency dictionary
-const SKILL_PROFICIENCY: Record<string, number> = {
-  // UI/UX Design
-  "Figma": 95,
-  "User Research": 85,
-  "Wireframing": 90,
-  "High-Fidelity Prototyping": 92,
-  "Design Systems": 88,
-  "Interaction Design": 90,
-  "Typography & Color Theory": 85,
-
-  // Frontend
-  "HTML": 95,
-  "CSS": 90,
-  "JavaScript": 92,
-  "TypeScript": 90,
-  "React": 92,
-  "Next.js": 85,
-  "Tailwind CSS": 95,
-
-  // Backend
-  "Node.js": 88,
-  "Express": 90,
-  "PostgreSQL": 82,
-  "Supabase": 88,
-  "REST APIs": 92,
-
-  // Tools & Deployment
-  "Git": 90,
-  "GitHub": 92,
-  "VS Code": 95,
-  "Vercel": 90,
-  "Netlify": 85
-};
-
 interface SkillTheme {
   dot: string;
   text: string;
@@ -89,8 +54,8 @@ const getThemeColors = (categoryTitle: string): SkillTheme => {
   }
 };
 
-// Custom spring-physics Draggable Skill Chip
-function DraggableSkillChip({ name, proficiency, theme }: { name: string; proficiency: number; theme: SkillTheme; key?: string | number }) {
+// Custom spring-physics Draggable Skill Chip (clean, unquantified badge)
+function DraggableSkillChip({ name, theme }: { name: string; theme: SkillTheme; key?: string | number }) {
   const constraintsRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -100,34 +65,13 @@ function DraggableSkillChip({ name, proficiency, theme }: { name: string; profic
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
         dragElastic={0.65}
         dragTransition={{ bounceStiffness: 400, bounceDamping: 15 }}
-        whileHover={{ scale: 1.04, boxShadow: `0 0 15px ${theme.shadow}` }}
+        whileHover={{ scale: 1.05, boxShadow: `0 0 15px ${theme.shadow}` }}
         whileDrag={{ scale: 1.1, cursor: "grabbing", zIndex: 30 }}
-        className={`px-3.5 py-2.5 rounded-xl border border-white/5 bg-[#131e35]/90 ${theme.hoverBorder} text-xs sm:text-sm font-semibold text-zinc-300 ${theme.hoverText} transition-all shadow-sm select-none min-w-[130px] sm:min-w-[145px]`}
+        className={`inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-white/5 bg-[#131e35]/90 ${theme.hoverBorder} text-xs sm:text-sm font-medium text-zinc-300 ${theme.hoverText} transition-all shadow-sm select-none cursor-grab active:cursor-grabbing`}
         data-cursor-drag
       >
-        <span className="flex flex-col gap-1.5 w-full">
-          <span className="flex items-center justify-between gap-2">
-            <span className="flex items-center gap-1.5 truncate">
-              <span className={`w-1.5 h-1.5 rounded-full ${theme.dot}`} />
-              <span className="truncate">{name}</span>
-            </span>
-            <span className={`text-[10px] font-mono ${theme.text}`}>
-              {proficiency}%
-            </span>
-          </span>
-          
-          {/* Custom micro-progress bar */}
-          <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden relative">
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: `${proficiency}%` }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: "easeOut", delay: 0.15 }}
-              className={`h-full rounded-full bg-gradient-to-r ${theme.bar}`}
-              style={{ boxShadow: `0 0 4px ${theme.shadow}` }}
-            />
-          </div>
-        </span>
+        <span className={`w-1.5 h-1.5 rounded-full ${theme.dot}`} />
+        <span>{name}</span>
       </motion.div>
     </div>
   );
@@ -162,7 +106,7 @@ export default function Skills() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/15 bg-cyan-500/5 text-cyan-400 text-[10px] font-mono tracking-widest uppercase mb-3"
           >
-            <span>SYS // COMPETENCIES</span>
+            <span>SKILLS</span>
           </motion.div>
           
           <motion.h2
@@ -172,7 +116,7 @@ export default function Skills() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl font-bold tracking-tight text-white font-sans uppercase"
           >
-            Core Technical Stack
+            Technical Stack
           </motion.h2>
           
           <motion.p
@@ -180,9 +124,9 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-zinc-500 text-sm max-w-lg mt-2 font-normal leading-relaxed"
+            className="text-zinc-400 text-sm max-w-md mt-2 font-normal leading-relaxed"
           >
-            Interactive technology cells mapping developer & UI/UX design expertise. Hover, grab, and toss any chip to experience real-time spring physics.
+            Technologies and design tools I use daily to build products.
           </motion.p>
         </div>
 
@@ -208,13 +152,11 @@ export default function Skills() {
               {/* Chips Flex-Wrap Panel */}
               <div className="flex flex-wrap -m-1">
                 {category.skills.map((skill) => {
-                  const proficiency = SKILL_PROFICIENCY[skill] || 85;
                   const theme = getThemeColors(category.title);
                   return (
                     <DraggableSkillChip 
                       key={skill} 
                       name={skill} 
-                      proficiency={proficiency} 
                       theme={theme} 
                     />
                   );

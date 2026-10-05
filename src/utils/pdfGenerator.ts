@@ -115,21 +115,21 @@ export function downloadProfessionalCV() {
   // Education Section
   leftY = drawSectionHeader('Education', leftColX, leftY, leftColWidth);
   setBodyStyle(9, primaryColor, true);
-  doc.text('A-Level Student', leftColX, leftY);
+  doc.text('Standard High School Zzana', leftColX, leftY);
   leftY += 4.5;
   
   setBodyStyle(8.5, bodyColor);
-  const schoolLines = doc.splitTextToSize('Standard High School Zzana (Uganda)', leftColWidth);
+  const schoolLines = doc.splitTextToSize('Uganda Advanced Certificate of Education (UACE)', leftColWidth);
   doc.text(schoolLines, leftColX, leftY);
   leftY += (schoolLines.length * 4) + 1;
 
   setBodyStyle(8, bodyColor, false);
   doc.setFont('helvetica', 'italic');
-  doc.text('2024 - Present', leftColX, leftY);
+  doc.text('Kampala, Uganda', leftColX, leftY);
   leftY += 4;
   
   setBodyStyle(8, bodyColor, false);
-  const subjLines = doc.splitTextToSize('Focus: Mathematics, Physics, Economics & Computer Science', leftColWidth);
+  const subjLines = doc.splitTextToSize('Focus: Computer Science, Mathematics, Physics & Economics', leftColWidth);
   doc.text(subjLines, leftColX, leftY);
   leftY += (subjLines.length * 4) + 4;
 

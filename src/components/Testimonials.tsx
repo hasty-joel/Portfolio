@@ -22,7 +22,7 @@ export default function Testimonials() {
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/15 bg-cyan-500/5 text-cyan-400 text-[10px] font-mono tracking-widest uppercase mb-3"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>07 / COMMUNITY ENDORSEMENT</span>
+            <span>REVIEWS</span>
           </motion.div>
           
           <motion.h2
@@ -40,9 +40,9 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-zinc-500 text-sm max-w-lg mt-2 font-normal leading-relaxed"
+            className="text-zinc-400 text-sm max-w-md mt-2 font-normal leading-relaxed"
           >
-            Testimonials from club patrons, technical mentors, and student collaborators. Swipe or drag horizontally to slide through.
+            Endorsements from mentors and collaborators.
           </motion.p>
         </div>
 

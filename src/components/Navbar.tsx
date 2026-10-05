@@ -54,6 +54,17 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile dropdown on window rescaling above xl breakpoint
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1280) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
@@ -115,7 +126,7 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1.5 px-1.5 py-1.5 rounded-full border border-white/5 bg-slate-900/40 backdrop-blur-sm">
+          <nav className="hidden xl:flex items-center gap-1.5 px-1.5 py-1.5 rounded-full border border-white/5 bg-slate-900/40 backdrop-blur-sm">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -140,8 +151,8 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
             })}
           </nav>
 
-          {/* Action Button & Theme Selector Dropdown */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Action Button & Theme Selector Dropdown (Desktop) */}
+          <div className="hidden xl:flex items-center gap-4">
             {/* Theme Trigger Selector */}
             <div className="relative">
               <button
@@ -213,87 +224,101 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
             </a>
           </div>
 
-          {/* Mobile menu toggle */}
-          <div className="flex md:hidden">
+          {/* Hamburger button for dropdown menu on rescaling and smaller screens */}
+          <div className="flex xl:hidden items-center gap-2.5">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 text-zinc-400 hover:text-white rounded-lg hover:bg-white/5 transition-all cursor-pointer"
-              aria-label="Toggle menu"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/10 bg-slate-900/60 hover:bg-white/10 text-zinc-200 transition-all cursor-pointer shadow-sm active:scale-95"
+              aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? (
+                <X className="w-4 h-4 text-cyan-400" />
+              ) : (
+                <Menu className="w-4 h-4 text-zinc-300" />
+              )}
+              <span className="text-xs font-medium tracking-wide">Menu</span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Dropdown Menu on Rescaling */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden border-b border-white/5 bg-[#070b19]/95 backdrop-blur-xl"
-          >
-            <div className="px-4 pt-2 pb-6 space-y-1 sm:px-6">
-              {navItems.map((item) => {
-                const isActive = activeSection === item.id;
-                return (
+          <>
+            {/* Backdrop to close when clicking outside */}
+            <div 
+              className="fixed inset-0 top-[65px] bg-black/60 backdrop-blur-sm z-30 xl:hidden"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="xl:hidden relative z-40 border-b border-white/10 bg-[#070b19]/95 backdrop-blur-2xl shadow-2xl max-h-[85vh] overflow-y-auto"
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
+                {navItems.map((item) => {
+                  const isActive = activeSection === item.id;
+                  return (
+                    <a
+                      key={item.id}
+                      href={`#${item.id}`}
+                      onClick={(e) => handleNavClick(e, item.id)}
+                      className={`flex items-center justify-between px-3.5 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
+                        isActive 
+                          ? 'text-cyan-400 bg-cyan-500/10 border-l-2 border-cyan-500' 
+                          : 'text-zinc-300 hover:text-white hover:bg-white/5'
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />}
+                    </a>
+                  );
+                })}
+
+                {/* Theme Selector in dropdown */}
+                <div className="pt-3 pb-2 border-t border-white/5 px-2 mt-2">
+                  <div className="text-[10px] font-mono tracking-wider text-zinc-500 uppercase mb-2 flex items-center gap-1.5">
+                    <Palette className="w-3 h-3 text-cyan-400" />
+                    <span>Theme</span>
+                  </div>
+                  <div className="grid grid-cols-4 sm:grid-cols-7 gap-1.5">
+                    {themes.map((t) => {
+                      const isActive = theme === t.id;
+                      return (
+                        <button
+                          key={t.id}
+                          onClick={() => onThemeChange(t.id)}
+                          className={`flex flex-col items-center gap-1 py-1.5 px-1 rounded-lg border transition-all cursor-pointer ${
+                            isActive 
+                              ? 'bg-white/10 border-cyan-500/50 text-white' 
+                              : 'bg-slate-900/40 border-white/5 text-zinc-400 hover:text-white hover:bg-white/5'
+                          }`}
+                        >
+                          <span className={`w-3 h-3 rounded-full border border-white/10 ${t.color}`} />
+                          <span className="text-[9px] font-medium">{t.label.split(' ')[0]}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div className="pt-2 px-2">
                   <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    onClick={(e) => handleNavClick(e, item.id)}
-                    className={`block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
-                      isActive 
-                        ? 'text-cyan-400 bg-cyan-500/10 border-l-2 border-cyan-500' 
-                        : 'text-zinc-400 hover:text-white hover:bg-white/5'
-                    }`}
+                    href="#contact"
+                    onClick={(e) => handleNavClick(e, 'contact')}
+                    className="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-400 hover:to-cyan-400 text-xs font-semibold text-white transition-all cursor-pointer shadow-md"
                   >
-                    {item.label}
+                    <span>Hire Joel</span>
+                    <ArrowUpRight className="w-4 h-4" />
                   </a>
-                );
-              })}
-
-              {/* Interactive Mobile Theme Picker */}
-              <div className="pt-4 pb-2 border-t border-white/5 px-3">
-                <div className="text-[10px] font-mono tracking-wider text-zinc-500 uppercase mb-2.5 flex items-center gap-1.5">
-                  <Palette className="w-3.5 h-3.5" />
-                  <span>Choose Visual Palette</span>
-                </div>
-                <div className="grid grid-cols-3 gap-1.5">
-                  {themes.map((t) => {
-                    const isActive = theme === t.id;
-                    return (
-                      <button
-                        key={t.id}
-                        onClick={() => onThemeChange(t.id)}
-                        className={`flex flex-col items-center gap-1 py-2 px-1 rounded-lg border transition-all cursor-pointer ${
-                          isActive 
-                            ? 'bg-white/5 border-cyan-500/50 text-white' 
-                            : 'bg-slate-900/40 border-white/5 text-zinc-400 hover:text-white hover:bg-white/5'
-                        }`}
-                      >
-                        <span className={`w-3.5 h-3.5 rounded-full border border-white/10 ${t.color}`} />
-                        <span className="text-[10px] font-medium tracking-wide">{t.label}</span>
-                      </button>
-                    );
-                  })}
                 </div>
               </div>
-
-              <div className="pt-4 px-3">
-                <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick(e, 'contact')}
-                  className="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-gradient-to-r from-sky-500 via-cyan-500 to-red-500 text-xs font-semibold text-white transition-all cursor-pointer"
-                >
-                  Hire Joel
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

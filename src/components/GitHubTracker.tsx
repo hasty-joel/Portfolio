@@ -122,7 +122,7 @@ export default function GitHubTracker() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/15 bg-cyan-500/5 text-cyan-400 text-[10px] font-mono tracking-widest uppercase mb-3"
             >
-              <span>SYS // ANALYTICAL INTEGRATION</span>
+              <span>GITHUB</span>
             </motion.div>
             
             <motion.h2
@@ -132,7 +132,7 @@ export default function GitHubTracker() {
               transition={{ delay: 0.1 }}
               className="text-3xl sm:text-5xl font-bold tracking-tight text-white font-sans uppercase"
             >
-              GitHub Pulse Tracker
+              GitHub Activity
             </motion.h2>
           </div>
 
