@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowUpRight, Palette, Check } from 'lucide-react';
+import logo1Img from '../assets/images/logo1.png';
 
 const navItems = [
   { id: 'home', label: 'Home' },
@@ -96,24 +97,12 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
             onClick={(e) => handleNavClick(e, 'home')}
             className="flex items-center gap-2.5 group cursor-pointer"
           >
-            <div className="relative w-8 h-10 flex items-center justify-center filter drop-shadow-[0_0_8px_rgba(255,204,0,0.35)] group-hover:scale-105 transition-transform duration-300">
-              <svg viewBox="0 0 100 120" className="w-full h-full">
-                {/* Ferrari Shield Outline */}
-                <path d="M 12 10 L 88 10 L 88 62 C 88 88 50 114 50 114 C 50 114 12 88 12 62 Z" 
-                      fill="#FFCC00" 
-                      stroke="#111111" 
-                      strokeWidth="3.5" 
-                      strokeLinejoin="round" />
-                {/* Italian Tricolor */}
-                <rect x="14" y="10.5" width="24" height="8" fill="#008C45" />
-                <rect x="38" y="10.5" width="24" height="8" fill="#FFFFFF" />
-                <rect x="62" y="10.5" width="24" height="8" fill="#CD212A" />
-                <line x1="14" y1="18.5" x2="86" y2="18.5" stroke="#111111" strokeWidth="1.5" />
-                {/* Stallion Silhouette */}
-                <path d="M 52 26 C 54 24 57 23 59 25 C 61 27 60 30 57 32 C 55 33 53 31 52 30 C 51 28 50 27 52 26 Z M 56 26 C 53 28 51 32 49 37 C 47 42 46 45 44 48 C 42 46 42 43 45 38 C 47 34 51 28 56 26 Z M 55 33 C 58 35 62 38 66 36 C 68 35 70 33 68 31 C 66 32 63 33 60 31 C 57 30 55 32 55 33 Z M 53 38 C 58 41 64 45 68 46 C 70 46 72 44 71 42 C 68 42 64 39 60 37 C 56 36 53 37 53 38 Z M 48 41 C 51 43 54 48 55 54 C 55 60 53 66 49 71 C 47 67 47 60 48 53 C 48 47 47 43 48 41 Z M 49 68 C 52 72 55 78 54 84 C 53 87 51 89 49 89 C 48 89 48 86 50 82 C 51 77 49 72 47 70 Z M 47 69 C 43 74 38 81 38 87 C 38 89 40 89 41 87 C 43 83 45 78 48 72 Z M 46 56 C 41 59 36 65 35 73 C 34 77 36 78 37 75 C 39 70 43 64 47 60 Z" fill="#111111" />
-                {/* AJ text */}
-                <text x="52" y="99" fill="#111111" fontFamily="sans-serif" fontWeight="900" fontSize="12" letterSpacing="3" textAnchor="middle">AJ</text>
-              </svg>
+            <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-cyan-400/30 bg-slate-900/80 shadow-[0_0_12px_rgba(6,182,212,0.25)] group-hover:shadow-[0_0_18px_rgba(6,182,212,0.5)] group-hover:scale-105 group-hover:border-cyan-400/60 transition-all duration-300 flex items-center justify-center p-0.5">
+              <img 
+                src={logo1Img} 
+                alt="Atamba Joel Brand Icon" 
+                className="w-full h-full object-contain filter drop-shadow"
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-white font-bold font-sans tracking-wider text-sm group-hover:text-amber-400 transition-colors leading-none">

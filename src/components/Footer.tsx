@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Github, Linkedin, MessageSquare, ArrowUp, Copy, Check } from 'lucide-react';
 import Magnetic from './Magnetic';
 
+import logo1Img from '../assets/images/logo1.png';
+
 export default function Footer() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -28,14 +30,19 @@ export default function Footer() {
     <footer className="py-12 bg-[#070b19] border-t border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
         
-        {/* Left Side: Copyright */}
-        <div className="text-center md:text-left space-y-1">
-          <p className="text-zinc-500 text-xs font-mono uppercase tracking-wider">
-            © 2026 JOEL ATAMBA • All rights reserved
-          </p>
-          <p className="text-zinc-600 text-[10px] font-mono uppercase tracking-widest">
-            Built with React + Express + Tailwind CSS
-          </p>
+        {/* Left Side: Brand & Copyright */}
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-lg overflow-hidden border border-white/10 bg-slate-900/60 p-0.5 shrink-0">
+            <img src={logo1Img} alt="Joel Atamba Logo" className="w-full h-full object-contain" />
+          </div>
+          <div className="text-left space-y-0.5">
+            <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider font-semibold">
+              JOEL ATAMBA
+            </p>
+            <p className="text-zinc-600 text-[10px] font-mono tracking-wider">
+              © 2026 • All rights reserved
+            </p>
+          </div>
         </div>
 
         {/* Center: Contact Info & Social handles */}

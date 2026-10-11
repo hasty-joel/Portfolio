@@ -5,6 +5,7 @@ import {
   Code2, 
   CheckCircle2
 } from 'lucide-react';
+import logo1Img from '../assets/images/logo1.png';
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -71,8 +72,11 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
           {/* Minimal Top Brand Bar */}
           <div className="relative z-20 w-full max-w-md mx-auto flex items-center justify-between text-xs font-mono text-zinc-500">
-            <span className="text-zinc-400 font-semibold tracking-wider">ATAMBA JOEL</span>
-            <span className="text-cyan-400/80 text-[10px] tracking-widest uppercase">UI/UX DEVELOPER</span>
+            <div className="flex items-center gap-2">
+              <img src={logo1Img} alt="Logo" className="w-5 h-5 rounded-md object-contain border border-cyan-500/30" />
+              <span className="text-zinc-300 font-semibold tracking-wider">ATAMBA JOEL</span>
+            </div>
+            <span className="text-cyan-400/90 text-[10px] tracking-widest uppercase">UI/UX DEVELOPER</span>
           </div>
 
           {/* CENTER ARTBOARD STAGE */}
@@ -94,12 +98,19 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                   className="absolute inset-0 rounded-full border border-dashed border-cyan-500/30"
                 />
 
-                {/* Central Brand Badge */}
-                <div className="relative z-10 w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-950/80 to-slate-900/90 border border-cyan-400/40 flex flex-col items-center justify-center shadow-inner">
-                  <span className="text-xl font-black tracking-tight text-white font-sans">
-                    AJ
-                  </span>
-                </div>
+                {/* Central Brand Badge with logo1 */}
+                <motion.div 
+                  initial={{ scale: 0.9, opacity: 0.8 }}
+                  animate={{ scale: [0.95, 1.05, 0.95], opacity: [0.9, 1, 0.9] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative z-10 w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-950/80 to-slate-900/90 border border-cyan-400/50 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.35)] overflow-hidden p-1.5"
+                >
+                  <img 
+                    src={logo1Img} 
+                    alt="Joel Atamba Logo" 
+                    className="w-full h-full object-contain filter drop-shadow-[0_0_6px_rgba(6,182,212,0.5)]"
+                  />
+                </motion.div>
 
                 {/* Animated Pen Tool Cursor */}
                 <motion.div
