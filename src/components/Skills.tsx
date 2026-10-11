@@ -6,8 +6,6 @@ import ScrollReveal from './ScrollReveal';
 
 interface SkillTheme {
   dot: string;
-  text: string;
-  bar: string;
   shadow: string;
   hoverBorder: string;
   hoverText: string;
@@ -18,8 +16,6 @@ const getThemeColors = (categoryTitle: string): SkillTheme => {
     case 'ui/ux design':
       return {
         dot: 'bg-amber-400',
-        text: 'text-amber-400/80 group-hover:text-amber-300',
-        bar: 'from-amber-500 to-orange-500',
         shadow: 'rgba(245, 158, 11, 0.4)',
         hoverBorder: 'hover:border-amber-500/30',
         hoverText: 'hover:text-amber-300'
@@ -27,8 +23,6 @@ const getThemeColors = (categoryTitle: string): SkillTheme => {
     case 'frontend':
       return {
         dot: 'bg-cyan-400',
-        text: 'text-cyan-400/80 group-hover:text-cyan-300',
-        bar: 'from-cyan-500 to-blue-500',
         shadow: 'rgba(6, 182, 212, 0.4)',
         hoverBorder: 'hover:border-cyan-500/30',
         hoverText: 'hover:text-cyan-300'
@@ -36,8 +30,6 @@ const getThemeColors = (categoryTitle: string): SkillTheme => {
     case 'backend':
       return {
         dot: 'bg-sky-400',
-        text: 'text-sky-400/80 group-hover:text-sky-300',
-        bar: 'from-sky-500 to-indigo-500',
         shadow: 'rgba(14, 165, 233, 0.4)',
         hoverBorder: 'hover:border-sky-500/30',
         hoverText: 'hover:text-sky-300'
@@ -45,8 +37,6 @@ const getThemeColors = (categoryTitle: string): SkillTheme => {
     default:
       return {
         dot: 'bg-emerald-400',
-        text: 'text-emerald-400/80 group-hover:text-emerald-300',
-        bar: 'from-emerald-500 to-teal-500',
         shadow: 'rgba(16, 185, 129, 0.4)',
         hoverBorder: 'hover:border-emerald-500/30',
         hoverText: 'hover:text-emerald-300'

@@ -119,7 +119,7 @@ export function downloadProfessionalCV() {
   leftY += 4.5;
   
   setBodyStyle(8.5, bodyColor);
-  const schoolLines = doc.splitTextToSize('Uganda Advanced Certificate of Education (UACE)', leftColWidth);
+  const schoolLines = doc.splitTextToSize('Uganda Advanced Certificate of Education (UACE) - Graduate', leftColWidth);
   doc.text(schoolLines, leftColX, leftY);
   leftY += (schoolLines.length * 4) + 1;
 

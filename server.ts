@@ -66,7 +66,7 @@ app.post("/api/assistant", async (req, res) => {
 
 Key facts about Atamba Joel:
 - Role: Software Engineer, UI/UX Designer, leader, AI Enthusiast.
-- Background: Completed and passed A-Level in Uganda with a focus on Computer Science, Mathematics, and Physics.
+- Background: Software engineer & UI/UX designer based in Uganda with strong foundation in Computer Science, modern web frameworks, and digital design systems.
 - Key Position: President of STAHIZA ICT Club, where he led developers, built the official club website/community hub, and organized coding bootcamps.
 - Selected Projects:
   1. STAHIZA ICT Club Hub: A community platform for developer innovation and collaboration.
@@ -236,7 +236,7 @@ app.get("/api/github/:username", async (req, res) => {
     username: username,
     name: "Atamba Joel",
     avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
-    bio: "Full-Stack Developer | President of STAHIZA ICT Club | Student passionate about AI & Web Engineering",
+    bio: "Full-Stack Developer & UI/UX Designer | President of STAHIZA ICT Club | Passionate about AI & Web Engineering",
     publicRepos: 18,
     followers: 47,
     following: 28,

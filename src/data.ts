@@ -55,14 +55,14 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: "stahiza",
     name: "STAHIZA ICT Club Hub",
-    description: "Collaborative portal for student developers to share projects and learning resources.",
-    longDescription: "Digital hub for STAHIZA ICT Club student developers featuring shared revision notes, project showcases, and coding challenge trackers built from Figma wireframes.",
+    description: "Collaborative portal for developers to share projects and learning resources.",
+    longDescription: "Digital hub for STAHIZA ICT Club developers featuring shared revision notes, project showcases, and coding challenge trackers built from Figma wireframes.",
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
     tags: ["React", "TypeScript", "Tailwind CSS", "UI/UX Design", "Express"],
     liveUrl: "https://ict-club-hub-stahiza.vercel.app/",
     githubUrl: "https://github.com/joel-atamba/stahiza-ict-club-hub",
     highlights: [
-      "Real-time resource sharing boards for students",
+      "Real-time resource sharing boards for club members",
       "Interactive coding challenge platform with quick feedback",
       "Clean dark-mode interface styled with Tailwind CSS",
       "Component-driven user flows designed first in Figma"
@@ -81,7 +81,7 @@ export const PROJECTS_DATA: Project[] = [
       "Live crowd song voting and request queue system",
       "Tactile soundboard dashboard layout with intuitive controls",
       "Interactive retro music visualizer interface",
-      "Real-time student poll tallying with visual charts"
+      "Live crowd poll tallying with visual charts"
     ]
   },
   {
@@ -136,7 +136,7 @@ export const PROJECTS_DATA: Project[] = [
     id: "ai-study-assistant",
     name: "AI Study Assistant",
     description: "Exam revision tool with personalized summaries, practice quizzes, and progress tracking.",
-    longDescription: "Revision companion helping students prepare for national exams using customized study guides, topic summaries, and interactive quizzes.",
+    longDescription: "Revision companion helping learners prepare for exams using customized study guides, topic summaries, and interactive quizzes.",
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
     tags: ["React", "TypeScript", "UX Design", "Gemini API", "Tailwind CSS"],
     liveUrl: "https://ai-study-assistant.vercel.app",
