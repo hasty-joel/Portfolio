@@ -103,26 +103,36 @@ export default function About() {
                   <span>UGANDA</span>
                 </div>
 
-                {/* Styled Center Avatar visual */}
-                <div className="w-32 h-32 rounded-full bg-gradient-to-tr from-sky-500 via-cyan-500 to-red-500 mx-auto flex items-center justify-center p-1 relative shadow-[0_0_40px_rgba(6,182,212,0.2)] group-hover:scale-105 transition-transform duration-500">
-                  <div className="w-full h-full rounded-full bg-[#0f172a] flex items-center justify-center overflow-hidden relative">
-                    <div className="text-3xl font-black font-sans tracking-tight text-white select-none">
-                      AJ
-                    </div>
+                {/* Styled Center Portrait visual with real photo */}
+                <div className="w-36 h-36 rounded-2xl overflow-hidden border-2 border-cyan-400/40 mx-auto relative shadow-[0_0_35px_rgba(6,182,212,0.3)] group-hover:scale-105 group-hover:border-cyan-300 transition-all duration-500">
+                  <img
+                    src={joelCoding}
+                    alt="Atamba Joel coding"
+                    className="w-full h-full object-cover object-center brightness-95 group-hover:brightness-105 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/70 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-1.5 left-2 right-2 flex items-center justify-between text-[9px] font-mono text-cyan-300 bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded">
+                    <span>STATUS</span>
+                    <span className="flex items-center gap-1 font-semibold text-emerald-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      ACTIVE
+                    </span>
                   </div>
-                  <div className="absolute -inset-1 border border-dashed border-cyan-400/20 rounded-full animate-[spin_40s_linear_infinite]" />
                 </div>
 
                 {/* Bottom bio card */}
-                <div className="space-y-2 relative z-10">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-3.5 h-3.5 text-cyan-400" />
-                    <span className="text-xs text-zinc-300 font-medium">Kampala, Uganda</span>
+                <div className="space-y-2 relative z-10 pt-2 border-t border-white/5">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+                      <span className="text-xs text-zinc-300 font-medium">Kampala, Uganda</span>
+                    </div>
+                    <span className="text-[10px] font-mono text-zinc-500">UTC+3</span>
                   </div>
                   
                   <div className="flex items-center gap-2">
-                    <GraduationCap className="w-3.5 h-3.5 text-cyan-400" />
-                    <span className="text-xs text-zinc-300 font-medium">STAHIZA Alumnus</span>
+                    <GraduationCap className="w-3.5 h-3.5 text-amber-400" />
+                    <span className="text-xs text-zinc-300 font-medium">STAHIZA ICT President</span>
                   </div>
                 </div>
               </div>
@@ -143,13 +153,17 @@ export default function About() {
               </p>
               
               <div className="flex flex-wrap gap-2.5">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-white/2 text-zinc-400 text-xs font-medium">
-                  <Award className="w-3.5 h-3.5 text-red-400" />
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-zinc-300 text-xs font-medium hover:border-amber-500/30 transition-colors">
+                  <Award className="w-3.5 h-3.5 text-amber-400" />
                   <span>STAHIZA President</span>
                 </div>
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-white/2 text-zinc-400 text-xs font-medium">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-zinc-300 text-xs font-medium hover:border-cyan-500/30 transition-colors">
                   <Code className="w-3.5 h-3.5 text-cyan-400" />
                   <span>UI/UX & Frontend</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-zinc-300 text-xs font-medium hover:border-emerald-500/30 transition-colors">
+                  <Users className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Community Builder</span>
                 </div>
               </div>
             </motion.div>
@@ -159,11 +173,12 @@ export default function About() {
               {ABOUT_DATA.stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="p-5 rounded-xl border border-white/5 bg-[#131e35] relative overflow-hidden group hover:border-cyan-500/25 transition-colors h-full"
+                  className="p-6 rounded-2xl border border-white/10 bg-slate-900/50 backdrop-blur-sm relative overflow-hidden group hover:border-cyan-400/40 hover:bg-slate-900/80 transition-all duration-300 h-full shadow-lg shadow-black/20"
                 >
-                  <div className="flex flex-col gap-1">
+                  <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="flex flex-col gap-1.5">
                     <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                    <span className="text-zinc-400 text-xs font-medium tracking-wide uppercase">
+                    <span className="text-zinc-400 text-xs font-medium tracking-wide uppercase font-sans">
                       {stat.label}
                     </span>
                   </div>

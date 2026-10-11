@@ -57,7 +57,7 @@ function DraggableSkillChip({ name, theme }: { name: string; theme: SkillTheme; 
         dragTransition={{ bounceStiffness: 400, bounceDamping: 15 }}
         whileHover={{ scale: 1.05, boxShadow: `0 0 15px ${theme.shadow}` }}
         whileDrag={{ scale: 1.1, cursor: "grabbing", zIndex: 30 }}
-        className={`inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-white/5 bg-[#131e35]/90 ${theme.hoverBorder} text-xs sm:text-sm font-medium text-zinc-300 ${theme.hoverText} transition-all shadow-sm select-none cursor-grab active:cursor-grabbing`}
+        className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-white/10 bg-slate-800/80 backdrop-blur-sm ${theme.hoverBorder} text-xs sm:text-sm font-medium text-zinc-200 hover:text-white ${theme.hoverText} transition-all shadow-md select-none cursor-grab active:cursor-grabbing`}
         data-cursor-drag
       >
         <span className={`w-1.5 h-1.5 rounded-full ${theme.dot}`} />
@@ -125,18 +125,23 @@ export default function Skills() {
           {SKILLS_DATA.map((category) => (
             <div
               key={category.title}
-              className="p-6 sm:p-8 rounded-2xl border border-white/5 bg-[#0f172a] relative overflow-hidden group hover:border-cyan-500/20 transition-all duration-300 h-full"
+              className="p-6 sm:p-7 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm relative overflow-hidden group hover:border-cyan-400/30 hover:bg-slate-900/80 transition-all duration-300 h-full shadow-xl shadow-black/20 flex flex-col"
             >
               {/* Outer soft glowing boundaries on hover */}
-              <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/2 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
               
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                  {getCategoryIcon(category.title)}
+              <div className="flex items-center justify-between gap-3 mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    {getCategoryIcon(category.title)}
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-white tracking-wide font-sans uppercase">
+                    {category.title}
+                  </h3>
                 </div>
-                <h3 className="text-lg font-bold text-white tracking-wide font-sans uppercase">
-                  {category.title}
-                </h3>
+                <span className="text-[10px] font-mono text-zinc-500 bg-white/5 px-2 py-0.5 rounded-full border border-white/5">
+                  {category.skills.length}
+                </span>
               </div>
 
               {/* Chips Flex-Wrap Panel */}

@@ -51,8 +51,8 @@ export default function Experience() {
                 </div>
 
                 {/* Main Content card */}
-                <div className="p-6 sm:p-8 rounded-2xl border border-white/5 bg-[#0f172a] group-hover:border-cyan-500/15 transition-all duration-300 relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-[2px] h-full bg-gradient-to-b from-sky-500 to-cyan-500 opacity-50" />
+                <div className="p-6 sm:p-8 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm group-hover:border-cyan-400/40 group-hover:bg-slate-900/80 transition-all duration-300 relative overflow-hidden shadow-xl shadow-black/20">
+                  <div className="absolute top-0 left-0 w-[3px] h-full bg-gradient-to-b from-sky-500 via-cyan-400 to-amber-400 opacity-70" />
                   
                   {/* Header row */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
@@ -60,14 +60,14 @@ export default function Experience() {
                       <h3 className="text-xl font-bold text-white tracking-wide font-sans group-hover:text-cyan-400 transition-colors">
                         {item.role}
                       </h3>
-                      <div className="flex items-center gap-2 mt-1 text-zinc-400 text-sm font-medium">
-                        <Award className="w-4 h-4 text-red-400 shrink-0" />
+                      <div className="flex items-center gap-2 mt-1 text-zinc-300 text-sm font-medium">
+                        <Award className="w-4 h-4 text-amber-400 shrink-0" />
                         <span>{item.company}</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-white/5 bg-white/2 font-mono text-[10px] text-zinc-400 self-start sm:self-center">
-                      <Calendar className="w-3.5 h-3.5 text-zinc-500" />
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.04] font-mono text-[11px] text-zinc-300 self-start sm:self-center">
+                      <Calendar className="w-3.5 h-3.5 text-cyan-400" />
                       <span>{item.period}</span>
                     </div>
                   </div>
@@ -76,7 +76,7 @@ export default function Experience() {
                   <div className="space-y-3 mb-6">
                     {item.description.map((bullet, bulletIdx) => (
                       <div key={bulletIdx} className="flex items-start gap-2.5">
-                        <CheckCircle className="w-4 h-4 text-cyan-500 shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                         <p className="text-zinc-300 text-xs sm:text-sm font-normal leading-relaxed">
                           {bullet}
                         </p>
@@ -85,11 +85,11 @@ export default function Experience() {
                   </div>
 
                   {/* Skills used */}
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
                     {item.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-2.5 py-1 rounded-md border border-white/5 bg-[#070b19] text-[10px] font-mono text-zinc-400 hover:border-cyan-500/20 hover:text-cyan-300 transition-colors"
+                        className="px-2.5 py-1 rounded-lg border border-white/10 bg-slate-800/80 text-[10px] font-mono text-zinc-300 hover:border-cyan-400/40 hover:text-white transition-colors"
                       >
                         {skill}
                       </span>

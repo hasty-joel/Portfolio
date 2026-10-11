@@ -68,7 +68,7 @@ export default function Testimonials() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ y: -4 }}
-                className="w-72 sm:w-[380px] p-6 sm:p-8 rounded-2xl border border-white/5 bg-[#0f172a] hover:border-cyan-500/20 transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
+                className="w-72 sm:w-[380px] p-6 sm:p-8 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm hover:border-cyan-400/40 hover:bg-slate-900/80 transition-all duration-300 shadow-xl shadow-black/20 flex flex-col justify-between relative overflow-hidden"
               >
                 {/* Quote outline badge */}
                 <Quote className="absolute top-6 right-6 w-8 h-8 text-white/5" />

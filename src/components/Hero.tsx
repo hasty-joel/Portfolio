@@ -153,18 +153,22 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-center"
         >
-          {/* Tagline Badge */}
+          {/* Availability Badge */}
           <motion.div 
             variants={itemVariants}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-red-500/20 bg-red-500/5 text-red-400 text-xs font-semibold tracking-wider uppercase mb-6 shadow-[0_0_15px_rgba(239,68,68,0.1)] hover:border-red-500/40 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-medium tracking-wide mb-6 shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:border-emerald-500/50 hover:bg-emerald-500/15 transition-all duration-300"
           >
-            <span>Available for Work</span>
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="font-sans font-medium">Available for Work & Collaborations</span>
           </motion.div>
 
           {/* Core Logo Name */}
           <motion.h1 
             variants={itemVariants}
-            className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-white font-sans uppercase mb-4 selection:bg-cyan-600"
+            className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-white font-sans uppercase mb-4 selection:bg-cyan-600 drop-shadow-sm"
           >
             {HERO_DATA.name}
           </motion.h1>
@@ -174,7 +178,7 @@ export default function Hero() {
             variants={sentenceVariants}
             initial="hidden"
             animate="visible"
-            className="text-sm sm:text-lg md:text-xl font-medium tracking-[0.15em] bg-gradient-to-r from-sky-400 via-cyan-300 to-red-400 bg-clip-text text-transparent font-sans uppercase mb-6 flex flex-wrap justify-center items-center"
+            className="text-sm sm:text-lg md:text-xl font-semibold tracking-[0.18em] bg-gradient-to-r from-sky-400 via-cyan-300 to-amber-300 bg-clip-text text-transparent font-sans uppercase mb-6 flex flex-wrap justify-center items-center"
           >
             {words.map((word, wordIdx) => (
               <span key={wordIdx} className="inline-block whitespace-nowrap mr-[0.35em] py-1">
@@ -192,7 +196,7 @@ export default function Hero() {
             <motion.span
               variants={cursorVariants}
               animate="blinking"
-              className="inline-block w-[2px] h-[1em] bg-red-400 shrink-0 self-center"
+              className="inline-block w-[2px] h-[1em] bg-cyan-400 shrink-0 self-center"
               style={{ verticalAlign: 'middle', marginLeft: '1px' }}
             />
           </motion.p>
@@ -208,14 +212,14 @@ export default function Hero() {
           {/* Magnetic Actions */}
           <motion.div 
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center w-full"
+            className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 justify-center w-full"
           >
             <Magnetic>
               <button 
                 onClick={() => handleScrollTo('projects')}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-400 hover:to-cyan-400 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 hover:scale-[1.03] transition-all cursor-pointer group"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer group"
               >
-                <span>Projects</span>
+                <span>Explore Projects</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </Magnetic>
@@ -223,9 +227,9 @@ export default function Hero() {
             <Magnetic>
               <button 
                 onClick={openConfirmModal}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl border border-white/10 hover:border-red-500/50 bg-white/2 hover:bg-red-950/10 text-sm font-semibold text-zinc-300 hover:text-red-300 flex items-center justify-center gap-2 hover:scale-[1.03] transition-all cursor-pointer group"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl border border-white/10 hover:border-cyan-400/40 bg-white/[0.03] hover:bg-white/[0.08] text-sm font-semibold text-zinc-200 hover:text-white flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer group backdrop-blur-sm"
               >
-                <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+                <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform text-cyan-400" />
                 <span>Download CV</span>
               </button>
             </Magnetic>
@@ -233,12 +237,35 @@ export default function Hero() {
             <Magnetic>
               <button 
                 onClick={() => handleScrollTo('contact')}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-transparent hover:bg-white/5 text-sm font-semibold text-zinc-400 hover:text-white flex items-center justify-center gap-1.5 hover:scale-[1.03] transition-all cursor-pointer"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl border border-white/5 bg-transparent hover:bg-white/5 text-sm font-semibold text-zinc-400 hover:text-white flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer"
               >
                 <Send className="w-3.5 h-3.5" />
                 <span>Contact</span>
               </button>
             </Magnetic>
+          </motion.div>
+
+          {/* Key Quick Metric Chips Ribbon */}
+          <motion.div 
+            variants={itemVariants}
+            className="mt-12 pt-8 border-t border-white/5 grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-2xl text-left"
+          >
+            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/20 transition-all">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">Experience</span>
+              <span className="text-sm font-bold text-white font-sans mt-0.5 block">4+ Years</span>
+            </div>
+            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/20 transition-all">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">Delivered</span>
+              <span className="text-sm font-bold text-white font-sans mt-0.5 block">12+ Projects</span>
+            </div>
+            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/20 transition-all">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">Leadership</span>
+              <span className="text-sm font-bold text-white font-sans mt-0.5 block">STAHIZA President</span>
+            </div>
+            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/20 transition-all">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">Location</span>
+              <span className="text-sm font-bold text-white font-sans mt-0.5 block">Uganda 🇺🇬</span>
+            </div>
           </motion.div>
         </motion.div>
       </div>

@@ -47,10 +47,10 @@ export default function Footer() {
 
         {/* Center: Contact Info & Social handles */}
         <div className="flex flex-col items-center gap-4">
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-3 items-center">
             <a 
               href="mailto:hasty0joel@gmail.com" 
-              className="p-2 rounded-lg border border-white/5 hover:border-cyan-500/30 text-zinc-500 hover:text-cyan-400 bg-[#0f172a] hover:bg-cyan-950/10 transition-all cursor-pointer"
+              className="p-2.5 rounded-xl border border-white/10 hover:border-cyan-400/40 text-zinc-400 hover:text-cyan-400 bg-slate-900/60 hover:bg-slate-900/90 transition-all cursor-pointer shadow-sm"
               title="Email Direct"
             >
               <Mail className="w-4 h-4" />
@@ -59,7 +59,7 @@ export default function Footer() {
               href="https://github.com/joel-atamba" 
               target="_blank" 
               rel="noreferrer" 
-              className="p-2 rounded-lg border border-white/5 hover:border-cyan-500/30 text-zinc-500 hover:text-cyan-400 bg-[#0f172a] hover:bg-cyan-950/10 transition-all cursor-pointer"
+              className="p-2.5 rounded-xl border border-white/10 hover:border-cyan-400/40 text-zinc-400 hover:text-cyan-400 bg-slate-900/60 hover:bg-slate-900/90 transition-all cursor-pointer shadow-sm"
               title="GitHub Profile"
             >
               <Github className="w-4 h-4" />
@@ -68,7 +68,7 @@ export default function Footer() {
               href="https://linkedin.com/in/joel-atamba" 
               target="_blank" 
               rel="noreferrer" 
-              className="p-2 rounded-lg border border-white/5 hover:border-cyan-500/30 text-zinc-500 hover:text-cyan-400 bg-[#0f172a] hover:bg-cyan-950/10 transition-all cursor-pointer"
+              className="p-2.5 rounded-xl border border-white/10 hover:border-cyan-400/40 text-zinc-400 hover:text-cyan-400 bg-slate-900/60 hover:bg-slate-900/90 transition-all cursor-pointer shadow-sm"
               title="LinkedIn Profile"
             >
               <Linkedin className="w-4 h-4" />
@@ -77,7 +77,7 @@ export default function Footer() {
               href="https://wa.me/256760672702" 
               target="_blank" 
               rel="noreferrer" 
-              className="p-2 rounded-lg border border-white/5 hover:border-cyan-500/30 text-zinc-500 hover:text-cyan-400 bg-[#0f172a] hover:bg-cyan-950/10 transition-all cursor-pointer"
+              className="p-2.5 rounded-xl border border-white/10 hover:border-cyan-400/40 text-zinc-400 hover:text-cyan-400 bg-slate-900/60 hover:bg-slate-900/90 transition-all cursor-pointer shadow-sm"
               title="WhatsApp Link"
             >
               <MessageSquare className="w-4 h-4" />

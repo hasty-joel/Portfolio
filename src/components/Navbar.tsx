@@ -55,10 +55,10 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile dropdown on window rescaling above xl breakpoint
+  // Close mobile dropdown on window rescaling above lg breakpoint
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1280) {
+      if (window.innerWidth >= 1024) {
         setMobileMenuOpen(false);
       }
     };
@@ -86,7 +86,7 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
   return (
     <header className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
       scrolled 
-        ? 'py-3 bg-[#070b19]/80 backdrop-blur-md border-b border-white/5' 
+        ? 'py-3 bg-[#070b19]/85 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20' 
         : 'py-5 bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,7 +97,7 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
             onClick={(e) => handleNavClick(e, 'home')}
             className="flex items-center gap-2.5 group cursor-pointer"
           >
-            <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-cyan-400/30 bg-slate-900/80 shadow-[0_0_12px_rgba(6,182,212,0.25)] group-hover:shadow-[0_0_18px_rgba(6,182,212,0.5)] group-hover:scale-105 group-hover:border-cyan-400/60 transition-all duration-300 flex items-center justify-center p-0.5">
+            <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-cyan-400/40 bg-slate-900/90 shadow-[0_0_12px_rgba(6,182,212,0.25)] group-hover:shadow-[0_0_18px_rgba(6,182,212,0.5)] group-hover:scale-105 group-hover:border-cyan-400/60 transition-all duration-300 flex items-center justify-center p-0.5">
               <img 
                 src={logo1Img} 
                 alt="Atamba Joel Brand Icon" 
@@ -108,14 +108,14 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
               <span className="text-white font-bold font-sans tracking-wider text-sm group-hover:text-amber-400 transition-colors leading-none">
                 ATAMBA JOEL
               </span>
-              <span className="text-[9px] font-mono text-cyan-400/80 tracking-widest uppercase mt-0.5">
+              <span className="text-[9px] font-mono text-cyan-400/90 tracking-widest uppercase mt-0.5">
                 UI/UX DEVELOPER
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center gap-1.5 px-1.5 py-1.5 rounded-full border border-white/5 bg-slate-900/40 backdrop-blur-sm">
+          <nav className="hidden lg:flex items-center gap-1 px-2 py-1.5 rounded-full border border-white/10 bg-slate-900/60 backdrop-blur-md shadow-inner">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -123,14 +123,14 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(e) => handleNavClick(e, item.id)}
-                  className={`relative px-4 py-1.5 text-xs font-medium tracking-wide rounded-full transition-colors cursor-pointer ${
+                  className={`relative px-3.5 py-1.5 text-xs font-medium tracking-wide rounded-full transition-colors cursor-pointer ${
                     isActive ? 'text-white' : 'text-zinc-400 hover:text-white'
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeNavBackground"
-                      className="absolute inset-0 bg-gradient-to-r from-sky-500/20 via-cyan-500/20 to-red-500/20 border border-cyan-500/30 rounded-full -z-10"
+                      className="absolute inset-0 bg-gradient-to-r from-sky-500/25 via-cyan-500/25 to-amber-500/20 border border-cyan-400/40 rounded-full -z-10 shadow-sm"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -141,12 +141,22 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
           </nav>
 
           {/* Action Button & Theme Selector Dropdown (Desktop) */}
-          <div className="hidden xl:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3">
+            {/* Let's Talk CTA */}
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, 'contact')}
+              className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-xs font-semibold text-white shadow-md shadow-cyan-500/20 hover:scale-105 transition-all cursor-pointer"
+            >
+              <span>Let's Talk</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+
             {/* Theme Trigger Selector */}
             <div className="relative">
               <button
                 onClick={() => setThemeMenuOpen(!themeMenuOpen)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-slate-900/40 hover:bg-white/10 text-xs font-medium text-zinc-300 hover:text-white transition-all cursor-pointer"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-slate-900/60 hover:bg-white/10 text-xs font-medium text-zinc-300 hover:text-white transition-all cursor-pointer backdrop-blur-sm"
                 title="Select Theme Color"
               >
                 <Palette className="w-3.5 h-3.5" />

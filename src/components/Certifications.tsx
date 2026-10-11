@@ -54,7 +54,7 @@ export default function Certifications() {
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ y: -6 }}
-                className="p-6 rounded-2xl border border-white/5 bg-[#0f172a] flex flex-col justify-between h-full group hover:border-cyan-500/20 transition-all cursor-pointer"
+                className="p-6 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm flex flex-col justify-between h-full group hover:border-cyan-400/40 hover:bg-slate-900/80 transition-all duration-300 shadow-xl shadow-black/20 cursor-pointer"
               >
                 {/* Top card elements */}
                 <div className="space-y-4">

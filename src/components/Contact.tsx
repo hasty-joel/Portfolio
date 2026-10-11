@@ -84,9 +84,9 @@ export default function Contact() {
               {/* Email */}
               <a 
                 href="mailto:hasty0joel@gmail.com"
-                className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0f172a] hover:border-cyan-500/30 group transition-all"
+                className="flex items-center gap-4 p-4 sm:p-4.5 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm hover:border-cyan-400/40 hover:bg-slate-900/80 group transition-all duration-300 shadow-md shadow-black/20"
               >
-                <div className="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:bg-cyan-500/20 transition-colors">
+                <div className="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:bg-cyan-500/20 group-hover:scale-105 transition-all">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
@@ -100,9 +100,9 @@ export default function Contact() {
                 href="https://github.com/hasty-joel"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0f172a] hover:border-cyan-500/30 group transition-all"
+                className="flex items-center gap-4 p-4 sm:p-4.5 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm hover:border-cyan-400/40 hover:bg-slate-900/80 group transition-all duration-300 shadow-md shadow-black/20"
               >
-                <div className="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:bg-cyan-500/20 transition-colors">
+                <div className="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:bg-cyan-500/20 group-hover:scale-105 transition-all">
                   <Github className="w-5 h-5" />
                 </div>
                 <div>
@@ -116,9 +116,9 @@ export default function Contact() {
                 href="https://linkedin.com/in/hasty01"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0f172a] hover:border-cyan-500/30 group transition-all"
+                className="flex items-center gap-4 p-4 sm:p-4.5 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm hover:border-cyan-400/40 hover:bg-slate-900/80 group transition-all duration-300 shadow-md shadow-black/20"
               >
-                <div className="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:bg-cyan-500/20 transition-colors">
+                <div className="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:bg-cyan-500/20 group-hover:scale-105 transition-all">
                   <Linkedin className="w-5 h-5" />
                 </div>
                 <div>
@@ -132,9 +132,9 @@ export default function Contact() {
                 href="https://wa.me/256760672702"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0f172a] hover:border-cyan-500/30 group transition-all"
+                className="flex items-center gap-4 p-4 sm:p-4.5 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm hover:border-cyan-400/40 hover:bg-slate-900/80 group transition-all duration-300 shadow-md shadow-black/20"
               >
-                <div className="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:bg-cyan-500/20 transition-colors">
+                <div className="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:bg-cyan-500/20 group-hover:scale-105 transition-all">
                   <MessageSquare className="w-5 h-5" />
                 </div>
                 <div>
@@ -150,10 +150,10 @@ export default function Contact() {
           <div className="lg:col-span-7">
             <motion.div 
               layout
-              className="p-6 sm:p-10 rounded-2xl border border-white/5 bg-[#0f172a] relative overflow-hidden flex flex-col items-center justify-center min-h-[420px]"
+              className="p-6 sm:p-10 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm relative overflow-hidden flex flex-col items-center justify-center min-h-[420px] shadow-xl shadow-black/20"
               transition={{ type: 'spring', stiffness: 200, damping: 25 }}
             >
-              <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-sky-500 to-cyan-500" />
+              <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-sky-500 via-cyan-400 to-amber-400" />
 
               <AnimatePresence mode="wait">
                 {!submitted ? (
@@ -167,53 +167,53 @@ export default function Contact() {
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="space-y-1.5">
-                        <label className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Name</label>
+                        <label className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">Name</label>
                         <input 
                           type="text" 
                           name="name"
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full px-4 py-2.5 rounded-xl border border-white/5 bg-[#131e35] text-xs font-semibold text-zinc-300 focus:outline-none focus:border-cyan-500/50 transition-colors"
+                          className="w-full px-4 py-3 rounded-xl border border-white/10 bg-slate-800/80 text-xs sm:text-sm font-medium text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/20 transition-all"
                           placeholder="Your full name"
                         />
                       </div>
                       <div className="space-y-1.5">
-                        <label className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Email</label>
+                        <label className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">Email</label>
                         <input 
                           type="email" 
                           name="email"
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-4 py-2.5 rounded-xl border border-white/5 bg-[#131e35] text-xs font-semibold text-zinc-300 focus:outline-none focus:border-cyan-500/50 transition-colors"
+                          className="w-full px-4 py-3 rounded-xl border border-white/10 bg-slate-800/80 text-xs sm:text-sm font-medium text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/20 transition-all"
                           placeholder="your.email@domain.com"
                         />
                       </div>
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Subject</label>
+                      <label className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">Subject</label>
                       <input 
                         type="text" 
                         name="subject"
                         required
                         value={formData.subject}
                         onChange={handleChange}
-                        className="w-full px-4 py-2.5 rounded-xl border border-white/5 bg-[#131e35] text-xs font-semibold text-zinc-300 focus:outline-none focus:border-cyan-500/50 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl border border-white/10 bg-slate-800/80 text-xs sm:text-sm font-medium text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/20 transition-all"
                         placeholder="Project blueprint details..."
                       />
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Message</label>
+                      <label className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">Message</label>
                       <textarea 
                         name="message"
                         required
                         rows={5}
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full px-4 py-2.5 rounded-xl border border-white/5 bg-[#131e35] text-xs font-semibold text-zinc-300 focus:outline-none focus:border-cyan-500/50 transition-colors resize-none"
+                        className="w-full px-4 py-3 rounded-xl border border-white/10 bg-slate-800/80 text-xs sm:text-sm font-medium text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/20 transition-all resize-none"
                         placeholder="Describe your design specifications or opportunities..."
                       />
                     </div>

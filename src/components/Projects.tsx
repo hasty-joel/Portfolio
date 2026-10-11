@@ -9,6 +9,21 @@ import ScrollReveal from './ScrollReveal';
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [activeFilter, setActiveFilter] = useState<'all' | 'ui-ux' | 'fullstack' | 'tools'>('all');
+
+  const filteredProjects = PROJECTS_DATA.filter((p) => {
+    if (activeFilter === 'all') return true;
+    if (activeFilter === 'ui-ux') {
+      return p.tags.some(t => ['UI/UX Design', 'Figma', 'Design Systems', 'Visual Design'].includes(t));
+    }
+    if (activeFilter === 'fullstack') {
+      return p.tags.some(t => ['Express', 'Node.js', 'Supabase'].includes(t)) || p.id.startsWith('stahiza');
+    }
+    if (activeFilter === 'tools') {
+      return p.tags.some(t => ['Gemini API', 'IndexedDB', 'Mobile UX'].includes(t)) || p.id.includes('saver') || p.id.includes('assistant');
+    }
+    return true;
+  });
 
   return (
     <section id="projects" className="py-24 bg-[#070b19] relative overflow-hidden">
@@ -18,60 +33,112 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/15 bg-cyan-500/5 text-cyan-400 text-[10px] font-mono tracking-widest uppercase mb-3"
-          >
-            <span>PROJECTS</span>
-          </motion.div>
-          
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-bold tracking-tight text-white font-sans uppercase"
-          >
-            Featured Work
-          </motion.h2>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-zinc-400 text-sm max-w-md mt-2 font-normal leading-relaxed"
-          >
-            Selected web applications and design systems.
-          </motion.p>
+        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/10 text-cyan-400 text-[10px] font-mono tracking-widest uppercase mb-3"
+            >
+              <span>PORTFOLIO SHOWCASE</span>
+            </motion.div>
+            
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-3xl sm:text-5xl font-bold tracking-tight text-white font-sans uppercase"
+            >
+              Featured Work
+            </motion.h2>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-zinc-400 text-sm max-w-md mt-2 font-normal leading-relaxed"
+            >
+              Production applications, design systems, and client platforms.
+            </motion.p>
+          </div>
+
+          {/* Interactive Filter Pills */}
+          <div className="flex flex-wrap items-center gap-2 bg-slate-900/60 p-1.5 rounded-2xl border border-white/10 backdrop-blur-sm self-start md:self-auto">
+            <button
+              onClick={() => setActiveFilter('all')}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                activeFilter === 'all'
+                  ? 'bg-cyan-500 text-white shadow-md shadow-cyan-500/25'
+                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              All ({PROJECTS_DATA.length})
+            </button>
+            <button
+              onClick={() => setActiveFilter('ui-ux')}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                activeFilter === 'ui-ux'
+                  ? 'bg-cyan-500 text-white shadow-md shadow-cyan-500/25'
+                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              UI/UX & Systems
+            </button>
+            <button
+              onClick={() => setActiveFilter('fullstack')}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                activeFilter === 'fullstack'
+                  ? 'bg-cyan-500 text-white shadow-md shadow-cyan-500/25'
+                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              Full Stack
+            </button>
+            <button
+              onClick={() => setActiveFilter('tools')}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                activeFilter === 'tools'
+                  ? 'bg-cyan-500 text-white shadow-md shadow-cyan-500/25'
+                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              Utilities
+            </button>
+          </div>
         </div>
 
         {/* Project Grid */}
-        <ScrollReveal staggerChildren={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-          {PROJECTS_DATA.map((project) => {
+        <ScrollReveal staggerChildren={0.15} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+          {filteredProjects.map((project) => {
             const isExpanded = expandedId === project.id;
             return (
               <TiltCard
                 key={project.id}
                 onClick={() => setExpandedId(isExpanded ? null : project.id)}
-                className="group cursor-pointer rounded-2xl border border-white/5 bg-[#0f172a] overflow-hidden flex flex-col h-full relative hover:border-cyan-500/20"
+                className="group cursor-pointer rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm overflow-hidden flex flex-col h-full relative hover:border-cyan-400/40 hover:bg-slate-900/80 transition-all duration-300 shadow-xl shadow-black/25"
                 disabled={isExpanded}
               >
                 {/* Premium Shimmer effects */}
                 <div className="shimmer-effect" />
 
                 {/* Card Image Area with visual overlays */}
-                <div className="relative aspect-video overflow-hidden bg-zinc-900 border-b border-white/5">
+                <div className="relative aspect-video overflow-hidden bg-zinc-900 border-b border-white/10">
                   <img
                     src={project.image}
                     alt={project.name}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 brightness-90 group-hover:brightness-100"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/40 to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80" />
+                  
+                  {/* Status Badge */}
+                  <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/70 backdrop-blur-md border border-white/15 text-[10px] font-mono text-zinc-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>Active</span>
+                  </div>
                 </div>
 
                 {/* Card Information */}
