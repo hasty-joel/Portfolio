@@ -129,12 +129,13 @@ export default function AIAssistant() {
               onClick={() => { setIsOpen(true); setHasNewMessage(false); }}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              className="p-4 rounded-full bg-gradient-to-tr from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white shadow-lg shadow-red-500/30 cursor-pointer flex items-center justify-center relative group"
+              data-cursor-label="AI TWIN"
+              className="p-4 rounded-full bg-gradient-to-tr from-cyan-500 via-sky-500 to-amber-400 hover:scale-105 text-slate-950 shadow-xl shadow-cyan-500/30 cursor-pointer flex items-center justify-center relative group transition-all duration-300"
               title="Chat with Atamba Joel's AI Twin"
             >
-              <MessageSquare className="w-6 h-6 group-hover:rotate-6 transition-transform" />
+              <MessageSquare className="w-5 h-5 group-hover:rotate-6 transition-transform stroke-[2.2]" />
               {hasNewMessage && (
-                <span className="absolute top-0 right-0 w-3 h-3 bg-sky-400 border-2 border-zinc-950 rounded-full animate-bounce" />
+                <span className="absolute top-0 right-0 w-3 h-3 bg-emerald-400 border-2 border-slate-950 rounded-full animate-ping" />
               )}
             </button>
           </motion.div>

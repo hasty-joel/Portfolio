@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Github, Linkedin, MessageSquare, ArrowUp, Copy, Check } from 'lucide-react';
 import Magnetic from './Magnetic';
 
-import logo1Img from '../assets/images/logo1.png';
+import logo1Img from '../assets/images/logo1.jpg';
 
 export default function Footer() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);

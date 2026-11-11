@@ -5,7 +5,7 @@ import {
   Code2, 
   CheckCircle2
 } from 'lucide-react';
-import logo1Img from '../assets/images/logo1.png';
+import logo1Img from '../assets/images/logo1.jpg';
 
 interface LoadingScreenProps {
   onComplete: () => void;

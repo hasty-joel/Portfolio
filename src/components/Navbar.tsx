@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowUpRight, Palette, Check } from 'lucide-react';
-import logo1Img from '../assets/images/logo1.png';
+import logo1Img from '../assets/images/logo1.jpg';
 
 const navItems = [
   { id: 'home', label: 'Home' },
