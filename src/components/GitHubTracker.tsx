@@ -187,15 +187,15 @@ export default function GitHubTracker() {
             className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10"
           >
             {/* Left Column: Profile Card */}
-            <div className="lg:col-span-4 rounded-2xl border border-white/5 bg-[#0f172a] p-6 sm:p-8 space-y-6 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-sky-500 to-cyan-500" />
+            <div className="lg:col-span-4 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm p-6 sm:p-8 space-y-6 relative overflow-hidden shadow-xl shadow-black/25">
+              <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-sky-500 via-cyan-400 to-amber-400" />
               
               <div className="flex items-center gap-4">
                 <img 
                   src={stats.avatarUrl} 
                   alt={stats.name} 
                   referrerPolicy="no-referrer"
-                  className="w-16 h-16 rounded-full border border-white/10"
+                  className="w-16 h-16 rounded-2xl border border-white/15 object-cover"
                 />
                 <div>
                   <h3 className="text-lg font-bold text-white tracking-wide font-sans">{stats.name}</h3>
@@ -203,6 +203,7 @@ export default function GitHubTracker() {
                     href={`https://github.com/${stats.username}`}
                     target="_blank"
                     rel="noreferrer"
+                    data-cursor-label="GITHUB"
                     className="text-xs font-mono text-cyan-400 flex items-center gap-1 hover:underline mt-0.5"
                   >
                     <Github className="w-3.5 h-3.5 text-zinc-500" />
@@ -216,7 +217,7 @@ export default function GitHubTracker() {
               </p>
 
               {/* Counts */}
-              <div className="grid grid-cols-3 gap-3 pt-6 border-t border-white/5">
+              <div className="grid grid-cols-3 gap-3 pt-6 border-t border-white/10">
                 <div className="text-center">
                   <div className="flex items-center justify-center gap-1 text-white font-mono font-bold text-base">
                     <BookOpen className="w-3.5 h-3.5 text-zinc-500" />
@@ -241,8 +242,8 @@ export default function GitHubTracker() {
               </div>
 
               {/* Extra Account creation info */}
-              <div className="flex items-center justify-center gap-1.5 pt-4 text-[10px] font-mono text-zinc-600 border-t border-white/5">
-                <Calendar className="w-3.5 h-3.5" />
+              <div className="flex items-center justify-center gap-1.5 pt-4 text-[10px] font-mono text-zinc-500 border-t border-white/10">
+                <Calendar className="w-3.5 h-3.5 text-cyan-400" />
                 <span>MEMBER SINCE {new Date(stats.createdAt).getFullYear()}</span>
               </div>
             </div>
@@ -251,10 +252,10 @@ export default function GitHubTracker() {
             <div className="lg:col-span-8 space-y-8">
               
               {/* Box 1: Contributions Pixels Grid & Heatmap */}
-              <div className="rounded-2xl border border-white/5 bg-[#0f172a] p-6 sm:p-8 space-y-6">
+              <div className="rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm p-6 sm:p-8 space-y-6 shadow-xl shadow-black/25">
                 <div className="flex items-center justify-between">
                   <h4 className="text-sm font-bold tracking-wider font-sans text-cyan-400 uppercase">Contribution Calendar</h4>
-                  <span className="text-xs font-mono text-zinc-500">{stats.stats.contributions} Commits Last 12 Months</span>
+                  <span className="text-xs font-mono text-zinc-400">{stats.stats.contributions} Commits Last 12 Months</span>
                 </div>
 
                 {/* Heatmap Grid Canvas Wrapper */}
@@ -338,20 +339,20 @@ export default function GitHubTracker() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
                 {/* Languages distribution Chart */}
-                <div className="rounded-2xl border border-white/5 bg-[#0f172a] p-6 sm:p-8 space-y-6">
+                <div className="rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm p-6 sm:p-8 space-y-6 shadow-xl shadow-black/25">
                   <h4 className="text-sm font-bold tracking-wider font-sans text-cyan-400 uppercase">Top Languages</h4>
                   
                   <div className="space-y-4">
                     {stats.languages.map((lang) => (
                       <div key={lang.name} className="space-y-1.5">
                         <div className="flex items-center justify-between text-xs">
-                          <span className="text-zinc-300 font-semibold flex items-center gap-1.5">
+                          <span className="text-zinc-200 font-semibold flex items-center gap-1.5">
                             <span className="w-2 h-2 rounded-full" style={{ backgroundColor: lang.color }} />
                             {lang.name}
                           </span>
-                          <span className="text-zinc-500 font-mono">{lang.percentage}%</span>
+                          <span className="text-zinc-400 font-mono">{lang.percentage}%</span>
                         </div>
-                        <div className="w-full h-1.5 bg-zinc-900 rounded-full overflow-hidden">
+                        <div className="w-full h-1.5 bg-zinc-800 rounded-full overflow-hidden">
                           <div 
                             className="h-full rounded-full transition-all duration-1000"
                             style={{ width: `${lang.percentage}%`, backgroundColor: lang.color }}
@@ -363,26 +364,26 @@ export default function GitHubTracker() {
                 </div>
 
                 {/* General Aggregated Stats */}
-                <div className="rounded-2xl border border-white/5 bg-[#0f172a] p-6 sm:p-8 flex flex-col justify-between">
-                  <h4 className="text-sm font-bold tracking-wider font-sans text-red-400 uppercase mb-6">Analytical Ledger</h4>
+                <div className="rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm p-6 sm:p-8 flex flex-col justify-between shadow-xl shadow-black/25">
+                  <h4 className="text-sm font-bold tracking-wider font-sans text-amber-400 uppercase mb-6">Analytical Ledger</h4>
                   
                   <div className="space-y-4 flex-grow flex flex-col justify-center">
-                    <div className="flex items-center justify-between text-xs py-2 border-b border-white/5">
-                      <span className="text-zinc-500 font-medium uppercase tracking-wide">Total Stars Earned</span>
+                    <div className="flex items-center justify-between text-xs py-2 border-b border-white/10">
+                      <span className="text-zinc-400 font-medium uppercase tracking-wide">Total Stars Earned</span>
                       <span className="text-white font-mono font-bold flex items-center gap-1">
                         <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
                         {stats.stats.totalStars}
                       </span>
                     </div>
-                    <div className="flex items-center justify-between text-xs py-2 border-b border-white/5">
-                      <span className="text-zinc-500 font-medium uppercase tracking-wide">Aggregate Commit Log</span>
+                    <div className="flex items-center justify-between text-xs py-2 border-b border-white/10">
+                      <span className="text-zinc-400 font-medium uppercase tracking-wide">Aggregate Commit Log</span>
                       <span className="text-white font-mono font-bold flex items-center gap-1">
                         <GitCommit className="w-3.5 h-3.5 text-cyan-400" />
                         {stats.stats.totalCommits}
                       </span>
                     </div>
-                    <div className="flex items-center justify-between text-xs py-2 border-b border-white/5">
-                      <span className="text-zinc-500 font-medium uppercase tracking-wide">Pull Requests Handled</span>
+                    <div className="flex items-center justify-between text-xs py-2 border-b border-white/10">
+                      <span className="text-zinc-400 font-medium uppercase tracking-wide">Pull Requests Handled</span>
                       <span className="text-white font-mono font-bold flex items-center gap-1">
                         <GitPullRequest className="w-3.5 h-3.5 text-sky-400" />
                         {stats.stats.totalPRs}

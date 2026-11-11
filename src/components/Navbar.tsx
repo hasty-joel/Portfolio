@@ -212,19 +212,10 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
                 )}
               </AnimatePresence>
             </div>
-
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, 'contact')}
-              className="relative overflow-hidden group px-4 py-1.5 rounded-lg border border-red-500/30 bg-red-950/15 hover:bg-red-900/25 text-xs font-semibold text-red-300 flex items-center gap-1.5 transition-all duration-300 cursor-pointer"
-            >
-              <span className="relative z-10">Hire Joel</span>
-              <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
           </div>
 
           {/* Hamburger button for dropdown menu on rescaling and smaller screens */}
-          <div className="flex xl:hidden items-center gap-2.5">
+          <div className="flex lg:hidden items-center gap-2.5">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/10 bg-slate-900/60 hover:bg-white/10 text-zinc-200 transition-all cursor-pointer shadow-sm active:scale-95"
@@ -248,7 +239,7 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
           <>
             {/* Backdrop to close when clicking outside */}
             <div 
-              className="fixed inset-0 top-[65px] bg-black/60 backdrop-blur-sm z-30 xl:hidden"
+              className="fixed inset-0 top-[65px] bg-black/60 backdrop-blur-sm z-30 lg:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
             <motion.div
@@ -256,7 +247,7 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="xl:hidden relative z-40 border-b border-white/10 bg-[#070b19]/95 backdrop-blur-2xl shadow-2xl max-h-[85vh] overflow-y-auto"
+              className="lg:hidden relative z-40 border-b border-white/10 bg-[#070b19]/95 backdrop-blur-2xl shadow-2xl max-h-[85vh] overflow-y-auto"
             >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
                 {navItems.map((item) => {

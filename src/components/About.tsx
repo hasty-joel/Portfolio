@@ -225,14 +225,15 @@ export default function About() {
           <ScrollReveal staggerChildren={0.15} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6" id="developer-collage">
             {/* 1. The UI/UX Designer (Wide Span) */}
             <div
-              className="col-span-1 md:col-span-1 lg:col-span-7 group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a] h-[280px] sm:h-[340px] md:h-[380px] cursor-pointer"
+              className="col-span-1 md:col-span-1 lg:col-span-7 group relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900/60 backdrop-blur-sm h-[280px] sm:h-[340px] md:h-[380px] cursor-pointer shadow-xl shadow-black/30 hover:border-cyan-400/40 transition-all duration-300"
               id="collage-designer-card"
+              data-cursor-label="FIGMA"
             >
               <img
                 src={joelDesigning}
                 alt="Atamba Joel designing UI/UX on tablet"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 brightness-90 group-hover:brightness-100"
+                className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 brightness-90 group-hover:brightness-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-6">
                 <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
@@ -255,14 +256,15 @@ export default function About() {
 
             {/* 2. The STAHIZA Club President */}
             <div
-              className="col-span-1 md:col-span-1 lg:col-span-5 group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a] h-[280px] sm:h-[340px] md:h-[380px] cursor-pointer"
+              className="col-span-1 md:col-span-1 lg:col-span-5 group relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900/60 backdrop-blur-sm h-[280px] sm:h-[340px] md:h-[380px] cursor-pointer shadow-xl shadow-black/30 hover:border-cyan-400/40 transition-all duration-300"
               id="collage-president-card"
+              data-cursor-label="LEAD"
             >
               <img
                 src={stahizaClub}
                 alt="Atamba Joel leading tech workshop"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 brightness-90 group-hover:brightness-100"
+                className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 brightness-90 group-hover:brightness-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-6">
                 <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
@@ -285,14 +287,15 @@ export default function About() {
 
             {/* 3. The Full-Stack Engineer */}
             <div
-              className="col-span-1 md:col-span-1 lg:col-span-5 group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a] h-[280px] sm:h-[340px] md:h-[380px] cursor-pointer"
+              className="col-span-1 md:col-span-1 lg:col-span-5 group relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900/60 backdrop-blur-sm h-[280px] sm:h-[340px] md:h-[380px] cursor-pointer shadow-xl shadow-black/30 hover:border-cyan-400/40 transition-all duration-300"
               id="collage-developer-card"
+              data-cursor-label="CODE"
             >
               <img
                 src={joelCoding}
                 alt="Atamba Joel coding typescript behind monitor"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 brightness-90 group-hover:brightness-100"
+                className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 brightness-90 group-hover:brightness-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-6">
                 <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
@@ -315,14 +318,15 @@ export default function About() {
 
             {/* 4. The Visual Spec Canvas */}
             <div
-              className="col-span-1 md:col-span-1 lg:col-span-7 group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a] h-[280px] sm:h-[340px] md:h-[380px] cursor-pointer"
+              className="col-span-1 md:col-span-1 lg:col-span-7 group relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900/60 backdrop-blur-sm h-[280px] sm:h-[340px] md:h-[380px] cursor-pointer shadow-xl shadow-black/30 hover:border-cyan-400/40 transition-all duration-300"
               id="collage-spec-card"
+              data-cursor-label="SPEC"
             >
               <img
                 src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80"
                 alt="Modern UIUX style guide and responsive prototype elements"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 brightness-90 group-hover:brightness-95"
+                className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 brightness-90 group-hover:brightness-95"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-6">
                 <div className="flex items-center gap-2 mb-1.5 sm:mb-2">

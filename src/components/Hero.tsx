@@ -153,32 +153,59 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-center"
         >
-          {/* Availability Badge */}
+          {/* Creative Developer Live Status Pill */}
           <motion.div 
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-medium tracking-wide mb-6 shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:border-emerald-500/50 hover:bg-emerald-500/15 transition-all duration-300"
+            className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-cyan-400/30 bg-slate-900/80 backdrop-blur-md text-xs font-mono tracking-wide mb-8 shadow-[0_0_30px_rgba(6,182,212,0.15)] hover:border-cyan-400/60 transition-all duration-300"
           >
-            <span className="relative flex h-2 w-2">
+            <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
             </span>
-            <span className="font-sans font-medium">Available for Work & Collaborations</span>
+            <span className="text-zinc-300 font-sans font-medium text-xs">
+              CREATIVE DEVELOPER <span className="text-zinc-600">/</span> FULL-STACK ENGINEER
+            </span>
+            <span className="text-[10px] text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+              AVAILABLE 2026
+            </span>
           </motion.div>
 
-          {/* Core Logo Name */}
-          <motion.h1 
-            variants={itemVariants}
-            className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-white font-sans uppercase mb-4 selection:bg-cyan-600 drop-shadow-sm"
-          >
-            {HERO_DATA.name}
-          </motion.h1>
+          {/* Monumental Name Typography with Kinetic Character Stagger */}
+          <div className="overflow-hidden mb-3">
+            <motion.h1 
+              variants={itemVariants}
+              className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tight text-white font-sans uppercase selection:bg-cyan-500 selection:text-black drop-shadow-2xl flex flex-wrap justify-center items-center"
+            >
+              {Array.from(HERO_DATA.name).map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ y: 80, opacity: 0, rotateZ: 4 }}
+                  animate={{ y: 0, opacity: 1, rotateZ: 0 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.15 + index * 0.03,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  whileHover={{ 
+                    y: -10, 
+                    scale: 1.08, 
+                    color: '#38bdf8',
+                    transition: { duration: 0.2 } 
+                  }}
+                  className={`inline-block cursor-default select-none ${char === ' ' ? 'w-4 sm:w-8' : ''}`}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </motion.h1>
+          </div>
 
-          {/* Subtitle / Headline with Typewriter reveal and flashing cursor */}
-          <motion.p 
+          {/* Animated Sub-Headline with Typewriter and dynamic colored accent */}
+          <motion.div 
             variants={sentenceVariants}
             initial="hidden"
             animate="visible"
-            className="text-sm sm:text-lg md:text-xl font-semibold tracking-[0.18em] bg-gradient-to-r from-sky-400 via-cyan-300 to-amber-300 bg-clip-text text-transparent font-sans uppercase mb-6 flex flex-wrap justify-center items-center"
+            className="text-sm sm:text-xl md:text-2xl font-bold tracking-[0.2em] bg-gradient-to-r from-sky-400 via-cyan-300 to-amber-300 bg-clip-text text-transparent font-sans uppercase mb-6 flex flex-wrap justify-center items-center"
           >
             {words.map((word, wordIdx) => (
               <span key={wordIdx} className="inline-block whitespace-nowrap mr-[0.35em] py-1">
@@ -186,7 +213,7 @@ export default function Hero() {
                   <motion.span
                     key={charIdx}
                     variants={letterVariants}
-                    className="inline-block"
+                    className="inline-block hover:text-white transition-colors"
                   >
                     {char}
                   </motion.span>
@@ -196,75 +223,77 @@ export default function Hero() {
             <motion.span
               variants={cursorVariants}
               animate="blinking"
-              className="inline-block w-[2px] h-[1em] bg-cyan-400 shrink-0 self-center"
-              style={{ verticalAlign: 'middle', marginLeft: '1px' }}
+              className="inline-block w-[3px] h-[1.1em] bg-cyan-400 shrink-0 self-center rounded-xs ml-1"
             />
-          </motion.p>
+          </motion.div>
 
-          {/* Detailed summary */}
+          {/* Precision Bio statement */}
           <motion.p 
             variants={itemVariants}
-            className="text-zinc-400 text-base sm:text-lg max-w-xl font-normal leading-relaxed mb-10"
+            className="text-zinc-400 text-base sm:text-lg max-w-2xl font-normal leading-relaxed mb-10 text-balance"
           >
             {HERO_DATA.intro}
           </motion.p>
 
-          {/* Magnetic Actions */}
+          {/* Magnetic Action Buttons with Kinetic Hover Glow */}
           <motion.div 
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 justify-center w-full"
           >
-            <Magnetic>
+            <Magnetic range={70} strength={0.4}>
               <button 
                 onClick={() => handleScrollTo('projects')}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer group"
+                data-cursor-label="VIEW"
+                className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-400 hover:from-cyan-400 hover:to-sky-400 text-sm font-bold text-slate-950 shadow-xl shadow-cyan-500/30 flex items-center justify-center gap-2.5 hover:scale-[1.04] active:scale-[0.98] transition-all cursor-pointer group tracking-wide"
               >
-                <span>Explore Projects</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <span>EXPLORE WORK</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </button>
             </Magnetic>
 
-            <Magnetic>
+            <Magnetic range={70} strength={0.4}>
               <button 
                 onClick={openConfirmModal}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl border border-white/10 hover:border-cyan-400/40 bg-white/[0.03] hover:bg-white/[0.08] text-sm font-semibold text-zinc-200 hover:text-white flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer group backdrop-blur-sm"
+                data-cursor-label="CV"
+                className="w-full sm:w-auto px-8 py-4 rounded-full border border-white/15 hover:border-cyan-400/60 bg-slate-900/60 hover:bg-slate-900/90 text-sm font-semibold text-zinc-100 hover:text-white flex items-center justify-center gap-2 hover:scale-[1.04] active:scale-[0.98] transition-all cursor-pointer group backdrop-blur-md shadow-lg shadow-black/30"
               >
                 <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform text-cyan-400" />
-                <span>Download CV</span>
+                <span>DOWNLOAD CV</span>
               </button>
             </Magnetic>
 
-            <Magnetic>
+            <Magnetic range={70} strength={0.4}>
               <button 
                 onClick={() => handleScrollTo('contact')}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl border border-white/5 bg-transparent hover:bg-white/5 text-sm font-semibold text-zinc-400 hover:text-white flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer"
+                data-cursor-label="TALK"
+                className="w-full sm:w-auto px-7 py-4 rounded-full border border-white/10 hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.06] text-sm font-semibold text-zinc-400 hover:text-white flex items-center justify-center gap-2 hover:scale-[1.04] active:scale-[0.98] transition-all cursor-pointer backdrop-blur-sm"
               >
-                <Send className="w-3.5 h-3.5" />
-                <span>Contact</span>
+                <Send className="w-3.5 h-3.5 text-zinc-400 group-hover:text-cyan-400 transition-colors" />
+                <span>LET'S CONNECT</span>
               </button>
             </Magnetic>
           </motion.div>
 
-          {/* Key Quick Metric Chips Ribbon */}
+          {/* Interactive Creative Developer Metrics Strip */}
           <motion.div 
             variants={itemVariants}
-            className="mt-12 pt-8 border-t border-white/5 grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-2xl text-left"
+            className="mt-14 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-3.5 w-full max-w-3xl text-left"
           >
-            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/20 transition-all">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">Experience</span>
-              <span className="text-sm font-bold text-white font-sans mt-0.5 block">4+ Years</span>
+            <div className="p-4 rounded-2xl bg-slate-900/40 border border-white/10 hover:border-cyan-400/30 transition-all duration-300 backdrop-blur-sm group">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 block group-hover:text-cyan-400 transition-colors">Specialization</span>
+              <span className="text-sm sm:text-base font-bold text-white font-sans mt-0.5 block">Creative Engineering</span>
             </div>
-            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/20 transition-all">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">Delivered</span>
-              <span className="text-sm font-bold text-white font-sans mt-0.5 block">12+ Projects</span>
+            <div className="p-4 rounded-2xl bg-slate-900/40 border border-white/10 hover:border-cyan-400/30 transition-all duration-300 backdrop-blur-sm group">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 block group-hover:text-cyan-400 transition-colors">Shipped Work</span>
+              <span className="text-sm sm:text-base font-bold text-white font-sans mt-0.5 block">12+ Production Apps</span>
             </div>
-            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/20 transition-all">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">Leadership</span>
-              <span className="text-sm font-bold text-white font-sans mt-0.5 block">STAHIZA President</span>
+            <div className="p-4 rounded-2xl bg-slate-900/40 border border-white/10 hover:border-cyan-400/30 transition-all duration-300 backdrop-blur-sm group">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 block group-hover:text-amber-400 transition-colors">Club Leadership</span>
+              <span className="text-sm sm:text-base font-bold text-white font-sans mt-0.5 block">STAHIZA President</span>
             </div>
-            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/20 transition-all">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">Location</span>
-              <span className="text-sm font-bold text-white font-sans mt-0.5 block">Uganda 🇺🇬</span>
+            <div className="p-4 rounded-2xl bg-slate-900/40 border border-white/10 hover:border-cyan-400/30 transition-all duration-300 backdrop-blur-sm group">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 block group-hover:text-emerald-400 transition-colors">Tech Hub</span>
+              <span className="text-sm sm:text-base font-bold text-white font-sans mt-0.5 block">Kampala, Uganda 🇺🇬</span>
             </div>
           </motion.div>
         </motion.div>

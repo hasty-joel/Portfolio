@@ -16,6 +16,8 @@ import AIAssistant from './components/AIAssistant';
 import BackToTop from './components/BackToTop';
 import ScrollProgressBar from './components/ScrollProgressBar';
 import ScrollReveal from './components/ScrollReveal';
+import CustomCursor from './components/CustomCursor';
+import InteractiveBackground from './components/InteractiveBackground';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -38,6 +40,9 @@ export default function App() {
 
   return (
     <>
+      {/* Precision Trailing Custom Cursor */}
+      <CustomCursor />
+
       {/* Dynamic Cinematic Loading Intro */}
       <LoadingScreen onComplete={() => setIsLoading(false)} />
 
@@ -47,8 +52,11 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className={`min-h-screen bg-[#070b19] text-zinc-100 selection:bg-cyan-500/30 selection:text-cyan-300 theme-${theme}`}
+            className={`min-h-screen bg-[#070b19] text-zinc-100 selection:bg-cyan-500/30 selection:text-cyan-300 theme-${theme} relative`}
           >
+            {/* Interactive Particle & Mesh Background */}
+            <InteractiveBackground />
+
             {/* Slim dynamic scroll progress bar */}
             <ScrollProgressBar />
 

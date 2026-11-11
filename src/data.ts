@@ -2,8 +2,8 @@ import { Project, Experience, Certificate, Testimonial, SkillCategory } from './
 
 export const HERO_DATA = {
   name: "ATAMBA JOEL",
-  headline: "UI/UX Designer & Developer",
-  intro: "Crafting intuitive web interfaces with clean design systems and modern code.",
+  headline: "Creative Developer & Software Engineer",
+  intro: "Crafting immersive digital experiences, fluid motion interactions, and high-performance web systems from Kampala, Uganda.",
 };
 
 export const ABOUT_DATA = {

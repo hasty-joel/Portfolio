@@ -222,53 +222,57 @@ export default function Projects() {
                     </AnimatePresence>
                   </div>
 
-                  {/* Technology badges */}
-                  <div className="flex flex-wrap gap-2 mt-4 pt-2 border-t border-white/5">
-                    {project.tags.slice(0, 3).map((tag, idx) => (
-                      <span
-                        key={tag}
-                        className="px-2.5 py-1 rounded-md border border-white/5 bg-white/2 text-[10px] font-mono text-zinc-400"
-                      >
-                        {tag}
+                  {/* Technology badges - Sleek clean text with subtle dot separation (Zero-Pill discipline) */}
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-4 pt-3 border-t border-white/10 text-[11px] font-mono text-zinc-400">
+                    {project.tags.slice(0, 4).map((tag, idx) => (
+                      <span key={tag} className="inline-flex items-center">
+                        <span className="hover:text-cyan-300 transition-colors">{tag}</span>
+                        {idx < Math.min(project.tags.length, 4) - 1 && (
+                          <span className="text-zinc-600 mx-1.5 font-bold">/</span>
+                        )}
                       </span>
                     ))}
-                    {project.tags.length > 3 && (
-                      <span className="px-2 py-0.5 rounded bg-cyan-950/30 text-[9px] font-mono text-cyan-400 font-semibold">
-                        +{project.tags.length - 3} MORE
+                    {project.tags.length > 4 && (
+                      <span className="text-[10px] text-cyan-400 font-semibold font-mono ml-1">
+                        +{project.tags.length - 4} more
                       </span>
                     )}
                   </div>
 
                   {/* Direct Redirect Links */}
-                  <div className="flex items-center justify-between mt-5 pt-3 border-t border-white/5" onClick={(e) => e.stopPropagation()}>
+                  <div className="flex items-center justify-between mt-5 pt-3 border-t border-white/10" onClick={(e) => e.stopPropagation()}>
                     <button
                       onClick={() => setSelectedProject(project)}
-                      className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1 cursor-pointer"
+                      data-cursor-label="INFO"
+                      className="text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1 cursor-pointer tracking-wider uppercase font-mono"
                     >
-                      <span>Deep-Dive</span>
+                      <span>SPECS</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
                     </button>
                     <div className="flex items-center gap-3">
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="group/btn flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-white/5 bg-white/2 hover:bg-red-500/10 hover:border-red-500/30 text-zinc-400 hover:text-red-400 text-xs font-medium transition-all duration-300"
+                        data-cursor-label="LIVE"
+                        className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/15 bg-white/[0.03] hover:bg-cyan-500/15 hover:border-cyan-400/40 text-zinc-300 hover:text-cyan-300 text-xs font-semibold transition-all duration-300"
                         title="Launch Live App"
                       >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                        <span>Live Demo</span>
-                        <ArrowUpRight className="w-3 h-3 opacity-50 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform shrink-0" />
+                        <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
+                        <span>Live</span>
+                        <ArrowUpRight className="w-3 h-3 opacity-60 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform shrink-0" />
                       </a>
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="group/btn flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-white/5 bg-white/2 hover:bg-cyan-500/10 hover:border-cyan-500/30 text-zinc-400 hover:text-cyan-400 text-xs font-medium transition-all duration-300"
+                        data-cursor-label="CODE"
+                        className="group/btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/15 bg-white/[0.03] hover:bg-white/10 hover:border-white/30 text-zinc-300 hover:text-white text-xs font-semibold transition-all duration-300"
                         title="GitHub Repository"
                       >
                         <Github className="w-3.5 h-3.5" />
-                        <span>GitHub</span>
-                        <ArrowUpRight className="w-3 h-3 opacity-50 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform shrink-0" />
+                        <span>Code</span>
+                        <ArrowUpRight className="w-3 h-3 opacity-60 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform shrink-0" />
                       </a>
                     </div>
                   </div>

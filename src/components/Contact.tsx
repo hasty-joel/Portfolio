@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mail, Github, Linkedin, MessageSquare, Send, Check, Loader2 } from 'lucide-react';
+import { Mail, Github, Linkedin, MessageSquare, Send, Check, Loader2, Sparkles } from 'lucide-react';
+import confetti from 'canvas-confetti';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
@@ -32,7 +33,19 @@ export default function Contact() {
       setTimeout(() => {
         setSubmitted(true);
         setSubmitting(false);
-      }, 1000);
+
+        // CodeofSagar-style celebration burst
+        try {
+          confetti({
+            particleCount: 70,
+            spread: 60,
+            origin: { y: 0.7 },
+            colors: ['#06b6d4', '#38bdf8', '#fbbf24', '#ffffff']
+          });
+        } catch (e) {
+          // graceful fallback
+        }
+      }, 800);
     } catch (err) {
       console.error(err);
       setErrorMessage('Relay error. Please connect directly via email below!');
